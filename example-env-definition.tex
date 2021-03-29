@@ -1,0 +1,21 @@
+\mdfdefinestyle{ExampleFrame}{%
+    nobreak=true,
+    innertopmargin=0,
+    innerbottommargin=0,
+    innerrightmargin=7pt,
+    innerleftmargin=7pt,
+    outermargin=0,
+    }
+\DeclareFloatingEnvironment[placement={!ht},name=Example]{exampleBox}
+\captionsetup[exampleBox]{labelfont=bf,aboveskip=2pt}
+\newcommand*\exampleCaption{}
+\newenvironment{example}[1]
+{
+\renewcommand*\exampleCaption{#1} % save argument
+\begin{exampleBox}
+\begin{mdframed}[style=ExampleFrame]
+}{
+\end{mdframed}
+\caption{\exampleCaption}
+\end{exampleBox}
+}
